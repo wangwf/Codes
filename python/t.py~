@@ -1,0 +1,19 @@
+def doit(init_pos, move1, move2):
+    Omega = matrix([[1.,.0,.0.], [0.,0.,0.],[1.,0.,0.]])
+    Xi = matrix([[init],[0.],[0.]])
+
+    Omega += matrix([[1.,-1.0,.0.], [-1.0.,1.0,0.],[1.,0.,0.]])
+    Xi    += matrix([[-move1],[move1],[0.]])
+
+    Omega += matrix([[0.,0.,.0.], [0.0.,1.0,-1.0],[0.,-1.,1.]])
+    Xi    += matrix([[0.0],[-move2],[move2]])
+
+    Omega.expand(4,4,[0.0,4])
+    Xi.expand(4)
+
+    Omega.show('Omega: ')
+    Xi.show('Xi:   ')
+    res= Omega.inverse()* Xi
+    res.show('Result: ')
+    return res
+}

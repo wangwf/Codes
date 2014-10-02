@@ -1,0 +1,48 @@
+def slam():
+
+    #dim
+    dim = 2*(N + num_landmarks)
+    
+    Omega = matrix()
+    Omega.zero(dim, dim)
+    Omega.value[0][0] = 1.0
+    Omega.value[1][1] = 1.0
+
+    Xi = matrix()
+    Xi.zero(dim, dim)
+    Xi.value[0][0] = world_size/2.0
+    Xi.value[1][0] = world_size/2.0
+
+#process the data
+
+    for k in range(len(data)):
+        # 
+        n = k*2
+
+        measurement = data[k][0]
+        motion      = data[k][1]
+
+        for i in range(len(measurement)):
+            #m the index of landmark coordinate
+            m = 2* (N + measurement[i][0])
+
+            #updata based on the measurement
+            for b in range(2):
+                Omega.value[n+b][n+b] += 1.0/measurement_noise
+                Omega.value[m+b][m+b] += 1.0/measurement_noise
+                Omega.value[n+b][m+b] +=-1.0/measurement_noise
+                Omega.value[m+b][n+b] +=-1.0/measurement_noise
+                Xi.value[n+b][0]      +=-measurement[i][1+b]/measurement_noise
+                Xi.value[m+b][0]      += measurement[i][1+b]/measurement_noise
+
+        #update the information matriax/vector based on the robot motion
+        for b in range(4):
+            Omega.value[n+b][n+b] += 1.0/motion_noise
+        for b in range(2):
+            Omega.value[n+b  ][n+b+2] +=-1.0/motion_noise
+            Omega.value[n+b+2][n+b  ] +=-1.0/motion_noise
+            Xi.value[n+b  ][0]        +=-motion[b]/motion_noise
+            Xi.value[n+b+2][0]        += motion[b]/motion_noise
+
+        #compute best estimate
+        mu = Omega.inverse()*Xi
