@@ -1,7 +1,7 @@
 
 getwd()
 
-learnFile <- "learnDataSet.log?dl=0"
+learnFile <- "learnDataSet.log"
 con <- file(learnFile, open="r")
 
 lines <- readLines(con)
