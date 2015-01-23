@@ -22,7 +22,7 @@ def isPalindrome(x):
 
 
 # using string method
-def isPalindrome(x):
+def isPalindrome2(x):
     if x<0:
         return False
 
