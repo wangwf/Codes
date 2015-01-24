@@ -1,5 +1,7 @@
 
-Here is a brief instruction for a test log file.
+A data science project for a log file analysis.
+
+Files:
 
 extract.ipynb:  data-cleaning
 
@@ -7,61 +9,20 @@ exploratory.ipynb: exploratory analysis (to be continue)
 
 graphlab.ipynb : data model using Graphlab (just start...)
 
-error:
 
-response:
+Features:
 
-  httpversion,  8:1:1#1:1#]13
+  features1=["error","response","headers","content"]
 
-  timestamp_end:
+  features2=["X-Frame-Options","X-Xss-Protection","X-Content-Type-Options","X-Ua-Compatible",
+               "X-Xhr-Current-Location","Content-Type","Etag","Cache-Control",
+               "X-Request-Id","X-Runtime","Server","Date",
+               "Content-Length","Connection" 
+            ]
 
-  timestamp_start:
-
-  headers:
-
-    X-Frame-Options:
-
-    X-Xss-Protection:
-
-    model=block
-
-    X-Content-Type-Options
-
-    nosniff
-
-    X-Ua-Compatible:    Chroms=1
-
-    X-Xhr-Current-Location
-
-    Content-Type: text/html
-
-    Etag
-
-    Cache-Control
-
-    X-Runtime
-
-    Server
-
-    Set-Cookie
-
-    request_method=GET
-
-    Connection
-
-    Keep-Alive
-  
+  features3 =["Set-Cookie"]  # =request_method=GET; path=/' or ]
 
 
-selected features:
 
-  response-size
 
-  X-Runtime  ( or end-start ?)
-
-  Server (category variable?_
-
-  set-cookie
-
-  request-method
 
