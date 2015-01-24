@@ -1,9 +1,15 @@
 
-Here is a brief instruction for a test log file. 
+Here is a brief instruction for a test log file.
 
-error: 
+extract.ipynb:  data-cleaning
 
-response: 
+exploratory.ipynb: exploratory analysis (to be continue)
+
+graphlab.ipynb : data model using Graphlab (just start...)
+
+error:
+
+response:
 
   httpversion,  8:1:1#1:1#]13
 
