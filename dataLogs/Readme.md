@@ -3,7 +3,7 @@ A data science project for a log file analysis.
 
 Files:
 
-extract.ipynb:  data-cleaning
+extract.ipynb:  data-cleaning and rewrite data into CSV, json and MongoDB
 
 exploratory.ipynb: exploratory analysis (to be continue)
 
