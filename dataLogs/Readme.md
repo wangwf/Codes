@@ -1,7 +1,15 @@
 
-A data science project for a log file analysis.
+A data science project to analyze network capture file(s). This is a on-going project, following the below steps.
 
-Files:
+<ul>
+<li>Data Cleaning: check missing values, data format consistence check,
+reshape data. </li>
+<li>Data Exploratory Analysis: feature distributions, mutual information, importance.</li>    
+<li>Data Modeling: Build a model forcasting the reqest response size.  
+</ul>
+
+
+Included Files:
 
 extract.ipynb:  data-cleaning and rewrite data into CSV, json and MongoDB
 
@@ -9,6 +17,7 @@ exploratory.ipynb: exploratory analysis (to be continue)
 
 graphlab.ipynb : data model using Graphlab (just start...)
 
+mongodb.ipynb : mongodb related query and reshape data.
 
 Features:
 
