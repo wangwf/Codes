@@ -10,27 +10,29 @@ reshape data. </li>
 
 
 Included Files:
+<ul>
+<li>extract.ipynb:  data-cleaning and rewrite data into CSV, json and MongoDB </li>
+<li>exploratory.ipynb: exploratory analysis (to be continue) </li>
+<li>graphlab.ipynb : data model using Graphlab (just start...) </li>
+<li>mongodb.ipynb : mongodb related query and reshape data. </li>
+</ul>
 
-extract.ipynb:  data-cleaning and rewrite data into CSV, json and MongoDB
+Currently selected features:
 
-exploratory.ipynb: exploratory analysis (to be continue)
-
-graphlab.ipynb : data model using Graphlab (just start...)
-
-mongodb.ipynb : mongodb related query and reshape data.
-
-Features:
-
-  features1=["error","response","headers","content"]
-
-  features2=["X-Frame-Options","X-Xss-Protection","X-Content-Type-Options","X-Ua-Compatible",
+<ul>
+<li>
+  features1=["error","response","headers","content"] </li>
+<li>
+   features2=["X-Frame-Options","X-Xss-Protection","X-Content-Type-Options","X-Ua-Compatible",
                "X-Xhr-Current-Location","Content-Type","Etag","Cache-Control",
                "X-Request-Id","X-Runtime","Server","Date",
                "Content-Length","Connection" 
             ]
-
+</li>
+<li>
   features3 =["Set-Cookie"]  # =request_method=GET; path=/' or ]
-
+</li>
+</ul>
 
 
 
