@@ -37,3 +37,10 @@ Currently selected features:
 
 The log files follows the pattern n1:length-n1-string:1#]}:n2:length-n2-string:1#]}... nn:length-nn-string:1#]}
 
+
+Important features:
+timeStamp_end  - timeStamp_start
+X_Runtime : middleware in Rack
+Content-Type
+X-Xhr-Current-Location
+
