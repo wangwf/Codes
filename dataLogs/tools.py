@@ -76,7 +76,7 @@ def skipHTML(infile, beginPattern="<!DOCTYPE html>", endPattern ="</html>"):
 
 
 #skip all content: HTML, javascript
-def skipAllContents(infile, beginPattern="content,"):
+def skipAllContents(infile, beginPattern="content,", endPattern="cert,0"):
     with open(infile,"r") as f:
         text =f.read()
 
@@ -84,6 +84,8 @@ def skipAllContents(infile, beginPattern="content,"):
     first,end = 0,0
     while first>-1:
         first= text.find(beginPattern,first+1) #
+        #end  = text.find(endPattern,first) #
+
         ncolon = text.find(":",first)
         if ncolon ==-1:
             continue
@@ -95,6 +97,7 @@ def skipAllContents(infile, beginPattern="content,"):
 
         #print first, end
         middle=text[ncolon+1: ncolon+ ncontent+1]
+        print  text[first+len(beginPattern):ncolon ], ncontent
         text=text.replace(middle,"")
 
     print "After cleaning ",len(text)
