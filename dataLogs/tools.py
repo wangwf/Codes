@@ -80,7 +80,7 @@ def skipAllContents(infile, beginPattern="content,", endPattern="cert,0"):
     with open(infile,"r") as f:
         text =f.read()
 
-    print "Origin file size ", len(text)
+#    print "Origin file size ", len(text)
     first,end = 0,0
     while first>-1:
         first= text.find(beginPattern,first+1) #
@@ -96,11 +96,11 @@ def skipAllContents(infile, beginPattern="content,", endPattern="cert,0"):
         ncontent = int(ncontent)
 
         #print first, end
-        middle=text[ncolon+1: ncolon+ ncontent+1]
-        print  text[first+len(beginPattern):ncolon ], ncontent
+        middle=text[ncolon+1: ncolon+ ncontent-1]
+       # print  text[first+len(beginPattern):ncolon ], ncontent
         text=text.replace(middle,"")
 
-    print "After cleaning ",len(text)
+#    print "After cleaning ",len(text)
     return text
 
 #newtext = skipHTML(flearn)  #replace_between(text,"<!DOCTYPE html>", "</html>", "")
@@ -121,6 +121,7 @@ def keyValuePairCheck(infile, features, option=1):
     ntrue =0
     nfalse=0
     nfeatures =0
+    nfeatures2 =0
     nwarnings =0
     # Global check pattern
     words = text.split(":")
@@ -131,6 +132,7 @@ def keyValuePairCheck(infile, features, option=1):
         key,n = words[i].split(",",1)  # only use the first coma
 #        key= ww[0]
 #        n  = ww[1]
+        key = key.lower()
         if key in features:
             nfeatures +=1
             '''
@@ -138,9 +140,12 @@ def keyValuePairCheck(infile, features, option=1):
                 print "Warning n is not digit",words[i]
                 nwarns +=1
             '''
+        elif key.lower() in [f.lower() for f in features]:
+            nfeatures2 +=1
+            print "features ",key,n
         else:
             if  n.isdigit():
-                print words[i],"  ", words[i+1][:int(n)]
+#                print words[i],"  ", words[i+1][:int(n)]
                 if int(n) != len(words[i+1][:int(n)]):
                     print "Waring length not equal",words[i],words[i+1]
                     nwarnings +=1
@@ -151,6 +156,7 @@ def keyValuePairCheck(infile, features, option=1):
     print "\n"
     print "Number of good Pattern ", ntrue
     print "Number of good features ", nfeatures
+    print "Number of good features2 ", nfeatures2
     print "Number of bad  Pattern ", nfalse
     print "Number of Warnings ", nwarnings
 
