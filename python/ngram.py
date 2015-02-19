@@ -18,14 +18,23 @@ def bigrams2(alist):
 
 
 #
-# List comprehension 
+# List comprehension
 def ngrams(alist, n):
     return zip(*[alist[i:] for i in range(n)])
 
+
+# Markov Model
+def markov(alist,n):
+    keys=ngrams(alist,n)
+    markovM={}
+    for k in keys:
+        markovM[k] = (markovM.get(k) or 0) +1
+    return markovM
 
 if __name__ == "__main__":
     import re
     s =" Stack Overflow is a question and answer site for professional and enthusiast programmers. It's 100% free, no registration required."
     words = s.strip(" ").split(" ")
 
-    print ngrams(words, 4)
+#    print ngrams(words, 4)
+    print markov(words,4)
