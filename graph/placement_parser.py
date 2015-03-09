@@ -33,15 +33,16 @@ def outputList():
 
 def outputgml(outfile="t.gml"):
     outF = open(outfile,"w")
-    s1="""<?xml version="1.0" encoding="UTF-8"?>
-<graphml xmlns="http://graphml.graphdrawing.org/xmlns" 
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns
-http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">"""
-    s1 += """<key id="d0" for="node" attr.name="label" attr.type="string"> 
-    <default></default> 
-  </key> """
-    s1 +="""<graph id="G" edgedefault="undirected">\n"""
+    s1="""<?xml version="1.0" encoding="UTF-8"?> \n"""
+
+#    s1 += """<graphml xmlns="http://graphml.graphdrawing.org/xmlns" 
+#             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+#             xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns
+#             http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">"""
+    s1 += "<graphml>\n"
+
+    s1 += """<key id="d0" for="node" attr.name="label" attr.type="string">  <default></default>   </key> \n"""
+    s1 += """<graph id="G" edgedefault="undirected">\n"""
 
 
     outF.write(s1)
@@ -52,7 +53,7 @@ http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">"""
 
 #            outF.write('<node id="'+result[i][j]+'"/>\n')
             outF.write('<node id="'+result[i][j]+'">\n')
-            outF.write('  <data key="d0">' + label + '</data>\n')
+            outF.write('  <data key="d0"> """' + str(label) + '"""</data>\n')
             outF.write('</node>\n')
 
     for i in range(n):
@@ -70,6 +71,8 @@ http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">"""
             outF.write('<edge source="'+source+'" target="'+target3+'"/>\n')
             outF.write('<edge source="'+source+'" target="'+target4+'"/>\n')
 
+    outF.write("</graph>")
+    outF.write("</graphml>")
     outF.close()
 
 
