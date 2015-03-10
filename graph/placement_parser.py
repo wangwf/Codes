@@ -15,9 +15,10 @@ def readFile(filename):
         attribution.pop("id",None)
         attribution.pop("pictureUrl",None)
 
-        res = attribution["firstName"]+attribution["lastName"] + "\n"
-        res += attribution['headline'].replace("&","-")
-        res +="\n"+ str(attribution["location"])
+        res = attribution["firstName"]+attribution["lastName"] + ",\n"
+        res += attribution['headline'].replace("&","-")+","
+        location = attribution["location"]["name"]+","+ attribution["location"]["country"]["code"]
+        res +="\n"+ str(location)
 
         return res
     return ""
