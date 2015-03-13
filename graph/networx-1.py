@@ -27,3 +27,8 @@ print g.edges()
 print g.number_of_edges()
 
 nx.write_graphml(g, "tt.graphml")
+
+# Generating Erdo Renyi Graph
+er = nx.erdos_renyi_graph(100, 0.15)
+nx.draw(er)
+

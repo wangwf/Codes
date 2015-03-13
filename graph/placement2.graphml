@@ -1,143 +1,172 @@
 <graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
-  <key attr.name="label" attr.type="string" for="node" id="d0" />
+  <key attr.name="label" attr.type="string" for="node" id="d1" />
+  <key attr.name="id" attr.type="string" for="node" id="d0" />
   <graph edgedefault="undirected">
     <node id="1">
-      <data key="d0">BoXin,
+      <data key="d0">BoXin</data>
+      <data key="d1">BoXin,
 Systems Analysis Scientist at Large Synoptic Survey Telescope (LSST),
 Tucson, Arizona Area,us</data>
     </node>
     <node id="2">
-      <data key="d0">AmberBoehnlein,
+      <data key="d0">AmberBoehnlein</data>
+      <data key="d1">AmberBoehnlein,
 Head of Scientific Computing at SLAC National Accelerator Laboratory,
 San Francisco Bay Area,us</data>
     </node>
     <node id="3">
-      <data key="d0">AaronRoodman,
+      <data key="d0">AaronRoodman</data>
+      <data key="d1">AaronRoodman,
 Professor of Particle Physics - Astrophysics, Stanford University,
 San Francisco Bay Area,us</data>
     </node>
     <node id="4">
-      <data key="d0">BingqingWang,
+      <data key="d0">BingqingWang</data>
+      <data key="d1">BingqingWang,
 Research Engineer at Bosch Research and Technology Center North America,
 San Francisco Bay Area,us</data>
     </node>
     <node id="5">
-      <data key="d0">BrianWang,
+      <data key="d0">BrianWang</data>
+      <data key="d1">BrianWang,
 Software Engineering Intern at Blue Jeans Network,
 Urbana-Champaign, Illinois Area,us</data>
     </node>
     <node id="6">
-      <data key="d0">AmitKhanna,
+      <data key="d0">AmitKhanna</data>
+      <data key="d1">AmitKhanna,
 President Small - Medium Business (SMB),
 Greater Omaha Area,us</data>
     </node>
     <node id="7">
-      <data key="d0">AmandaPapp,
+      <data key="d0">AmandaPapp</data>
+      <data key="d1">AmandaPapp,
 Sr. Machine Learning/Data Science Talent Evangelist,
 Greater Seattle Area,us</data>
     </node>
     <node id="8">
-      <data key="d0">BertrandEchenard,
+      <data key="d0">BertrandEchenard</data>
+      <data key="d1">BertrandEchenard,
 Research Professor at Caltech,
 Greater Los Angeles Area,us</data>
     </node>
     <node id="9">
-      <data key="d0">A ESnyder,
+      <data key="d0">AESnyder</data>
+      <data key="d1">A ESnyder,
 SLAC at SLAC,
 San Francisco Bay Area,us</data>
     </node>
     <node id="10">
-      <data key="d0">AndreiSalnikov,
+      <data key="d0">AndreiSalnikov</data>
+      <data key="d1">AndreiSalnikov,
 Research Software Developer at Stanford Linear Accelerator Center,
 San Francisco Bay Area,us</data>
     </node>
     <node id="11">
-      <data key="d0">AndrewRuland,
+      <data key="d0">AndrewRuland</data>
+      <data key="d1">AndrewRuland,
 Data Scientist at Brighterion,
 San Francisco Bay Area,us</data>
     </node>
     <node id="12">
-      <data key="d0">AngelaTran Kingyens,
+      <data key="d0">AngelaTranKingyens</data>
+      <data key="d1">AngelaTran Kingyens,
 Investor at Version One Ventures,
 San Francisco Bay Area,us</data>
     </node>
     <node id="13">
-      <data key="d0">AmyKnapp,
+      <data key="d0">AmyKnapp</data>
+      <data key="d1">AmyKnapp,
 Talent at Redpoint Ventures,
 San Francisco Bay Area,us</data>
     </node>
     <node id="14">
-      <data key="d0">Aran DavidStubbs,
+      <data key="d0">AranDavidStubbs</data>
+      <data key="d1">Aran DavidStubbs,
 Founder - President, Inframatter Research Center,
 Toledo, Ohio Area,us</data>
     </node>
     <node id="15">
-      <data key="d0">BradWray,
+      <data key="d0">BradWray</data>
+      <data key="d1">BradWray,
 Senior Seismic Imager at CGG,
 Houston, Texas Area,us</data>
     </node>
     <node id="16">
-      <data key="d0">BryanFulsom,
+      <data key="d0">BryanFulsom</data>
+      <data key="d1">BryanFulsom,
 Research Associate (Particle Physics, ATLAS and BaBar Experiments) at Stanford University,
 San Francisco Bay Area,us</data>
     </node>
     <node id="17">
-      <data key="d0">AlexanderRakitin,
+      <data key="d0">AlexanderRakitin</data>
+      <data key="d1">AlexanderRakitin,
 Staff Data Scientist at Natera,
 San Francisco Bay Area,us</data>
     </node>
     <node id="18">
-      <data key="d0">ArdavanGolshan,
+      <data key="d0">ArdavanGolshan</data>
+      <data key="d1">ArdavanGolshan,
 Marketing Manager at Venor Inc.,
 San Francisco Bay Area,us</data>
     </node>
     <node id="19">
-      <data key="d0">AprilDurrett,
+      <data key="d0">AprilDurrett</data>
+      <data key="d1">AprilDurrett,
 Contributing Editor at IDEA Health - Fitness,
 San Francisco Bay Area,us</data>
     </node>
     <node id="20">
-      <data key="d0">Anna LissaCruz,
+      <data key="d0">AnnaLissaCruz</data>
+      <data key="d1">Anna LissaCruz,
 Senior Software Engineer,
 San Francisco Bay Area,us</data>
     </node>
     <node id="21">
-      <data key="d0">AiguoYan,
+      <data key="d0">AiguoYan</data>
+      <data key="d1">AiguoYan,
 Principal Engineer,
 San Francisco Bay Area,us</data>
     </node>
     <node id="22">
-      <data key="d0">AllenTing,
+      <data key="d0">AllenTing</data>
+      <data key="d1">AllenTing,
 Technical Director, Cloud, Virtualization, Web and Email Security,
 San Francisco Bay Area,us</data>
     </node>
     <node id="23">
-      <data key="d0">AidongChen,
+      <data key="d0">AidongChen</data>
+      <data key="d1">AidongChen,
 Sr. Associate Administrator - Data Scientist at KPMT LLP,
 Greater New York City Area,us</data>
     </node>
     <node id="24">
-      <data key="d0">ArafatGabareen Mokhtar,
+      <data key="d0">ArafatGabareenMokhtar</data>
+      <data key="d1">ArafatGabareen Mokhtar,
 Lead Data Scientist at Stanford University - Financial Management Services,
 San Francisco Bay Area,us</data>
     </node>
     <node id="25">
-      <data key="d0">AmandaMatthews,
+      <data key="d0">AmandaMatthews</data>
+      <data key="d1">AmandaMatthews,
 Staffing Manager at Microsoft,
 San Antonio, Texas Area,us</data>
     </node>
     <node id="26">
-      <data key="d0">BeataKempanowski,
+      <data key="d0">BeataKempanowski</data>
+      <data key="d1">BeataKempanowski,
 Sr Technical Recruiter at Pivotal,
 San Francisco Bay Area,us</data>
     </node>
     <node id="27">
-      <data key="d0">BuckTeal,
+      <data key="d0">BuckTeal</data>
+      <data key="d1">BuckTeal,
 Director of Business Development at Jumio Inc.,
 San Francisco Bay Area,us</data>
     </node>
     <node id="28">
-      <data key="d0">BingHe,
+      <data key="d0">BingHe</data>
+      <data key="d1">BingHe,
 Engineer in Networking,
 San Francisco Bay Area,us</data>
     </node>

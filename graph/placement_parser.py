@@ -143,6 +143,40 @@ def outputgraphml(outfile="t.graphml"):
 
 outputgraphml("placement2.graphml")
 
+def outputgraphml2(outfile="t.graphml"):
+
+    import networkx as nx
+    g = nx.Graph()
+
+    nnodes = n*m
+    g.add_nodes_from(range(1, nnodes+1))
+
+
+    for i in range(n):
+        for j in range(m):
+            i1,i2= (i+1)%n, (i-1+n)%n
+            j1,j2= (j+1)%m, (j-1+m)%m
+
+            source  = (1 + i *m + j)
+            target1 = (1 + i1*m + j)
+            target2 = (1 + i2*m + j)
+            target3 = (1 + i *m + j1)
+            target4 = (1 + i *m + j2)
+
+            g.node[source]['label'] = label= readFile(dirPath+result[i][j]) #result[i][j]
+            g.add_edge( source, target1)
+            g.add_edge( source, target2)
+            g.add_edge( source, target3)
+            g.add_edge( source, target4)
+
+
+
+    nx.write_graphml(g, outfile)
+
+
+
+outputgraphml2("placement2.graphml")
+
 #
 #
 #

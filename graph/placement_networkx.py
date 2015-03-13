@@ -48,7 +48,9 @@ def outputgraphml2(outfile="t.graphml"):
             target3 = (1 + i *m + j1)
             target4 = (1 + i *m + j2)
 
-            g.node[source]['label'] = label= readFile(dirPath+result[i][j]) #result[i][j]
+            g.node[source]['id'] = result[i][j]
+            g.node[source]['label']=readFile(dirPath+result[i][j]) #result[i][j]
+#            g.node[source]['label'] = label= readFile(dirPath+result[i][j]) #result[i][j]
             g.add_edge( source, target1)
             g.add_edge( source, target2)
             g.add_edge( source, target3)
