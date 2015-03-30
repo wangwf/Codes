@@ -15,6 +15,13 @@ For example:
 
 '''
 
+def titleToNumber1(s):
+    n = len(s)
+    res=0
+    for i in range(n):
+        res = res*26 + ord(s[i]) - ord("A") +1
+    return res
+
 def titleToNumber(s):
     number =0
     for i in range(len(s)):
@@ -35,3 +42,16 @@ print titleToNumber("AA")
 print titleToNumber("AB")
 print titleToNumber("BB")
 print titleToNumber("AAA")
+
+
+def convertToTitle(num):
+    if num==0: return ""
+    return convertToTitle( (num-1)/26) + chr( (num-1)%26 + ord("A"))
+
+def convertToTitle(num):
+    res =""
+    while num>0:
+        res += chr( (num-1)%26 + ord("A"))
+        num = (num-1)/26
+
+    return res[::-1]

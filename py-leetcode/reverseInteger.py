@@ -35,6 +35,17 @@ def reverse(x):
 
     return res
 
+def reverse2(x):
+    MAXINT = 2**31
+    isNeg =False
+    if x<0: 
+        isNeg = True
+        x = -x
+
+    x = int(str(x)[::-1])
+    if x>MAXINT: return 0
+    if isNeg: x = -x
+    return x
 print reverse(123)
 print reverse(-231)
 print reverse(1534236469)
