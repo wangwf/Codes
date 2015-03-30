@@ -22,6 +22,8 @@ def bigrams2(alist):
 def ngrams(alist, n):
     return zip(*[alist[i:] for i in range(n)])
 
+def ngrams2(alist, n):
+    return [tuple(alist[i:i+n]) for i in range(len(alist)-n+1)]
 
 # Markov Model
 def markov(alist,n):
