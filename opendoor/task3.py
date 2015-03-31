@@ -6,21 +6,25 @@ Part 3. Memoizer
 except it caches the last k results of f.
 
 Additional questions:
-Can you describe the efficiency of the memoizer?
-What does your memoizer handle concurrent access?
+Q1: Can you describe the efficiency of the memoizer?
+ A: for the below simple recursive fib-function, two previousl functions always cached, its complexity O(n) while the previousl one is approximately O(2^n)
+
+Q2: What does your memoizer handle concurrent access?
+ A: The SizedDict is implemented based on python's built-in dictionary,
+    it is thread-safe.
 """
 
 from limitedSizedDict import SizedDict
 
-def memoize(f,k):
-    memo = SizedDict(k) #{}
+def memoizer(f,k):
+    memo = SizedDict(k) #  k-sized dictionary
     def helper(x):
         if x not in memo:
             memo[x] = f(x)
         return memo[x]
     return helper
 
-#@memoize
+#
 def fib(n):
     if n == 0:
         return 0
@@ -28,7 +32,7 @@ def fib(n):
         return 1
     else:
         return fib(n-1) + fib(n-2)
-#        return memoize(fib(n-1),2) + memoize(fib(n-2),2)
 
-fib = memoize(fib,2)
+
+#fib = memoizer(fib,2)
 print(fib(40))

@@ -11,26 +11,36 @@
 #  How would you improve your model?
 #  How would you host your model in a production environment to predict values of homes in real-time?
 
-downloadFiles<-function(dataURL, dname){
-    #    dir.create("./data")
-    temp <-tempfile()
-    download.file(dataURL, temp, method="curl")
-    #unzip(temp,exdir="./data/")
-    gunzip(filename=temp,destname=dname)
-    ## rename dir-name ""UCI HAR Dataset" to "UCI_HAR_Dataset"
-    # mv UCI\ HAR\ Dataset/ UCI_HAR_Dataset
-    # file.rename("UCI HAR Dataset", "UCI_HAR_Dataset")
-    unlink(temp)    
+checkPkgs <- function(pkgs) {
+    pkg.inst <- installed.packages()
+    #    pkgs <- c("sqldf", "data.table","ggplot2")
+    have.pkg <- pkgs %in% rownames(pkg.inst)
+    
+    if(any(!have.pkg)) {
+        cat("Some packages need to be installed\n")
+        r <- readline("Install necessary packages [y/n]? ")
+        if(tolower(r) == "y") {
+            need <- pkgs[!have.pkg]
+            message("installing packages ",
+                    paste(need, collapse = ", "))
+            install.packages(need)
+        }
+    }
 }
 
-if(!file.exists("./sacramento_txns.csv")){
+checkPkgs(c("ggplot2", "rpart","ggplot2"))
+
+setwd("/home/wenfeng/work/Codes/opendoor/")
+
+datafile ="./sacramento_txns.csv"
+if(!file.exists(datafile)){
     dataURLcsv<-"https://s3.amazonaws.com/opendoor-problems/sacramento_txns.csv"
-    downloadFiles(dataURLcsv, "sacramento_txns.csv")
+    download.file(dataURLcsv, datafile, method="curl")
 }
 cat(paste("Loading data...\n"))
-setwd("/home/wenfeng/work/Codes/opendoor/")
-csvFile <- "sacramento_txns.csv"
-house <- read.csv(csvFile, header=TRUE, sep=",")
+#csvFile <- "sacramento_txns.csv"
+
+house <- read.csv(datafile, header=TRUE, sep=",")
 
 ################################################################################
 #
@@ -47,8 +57,8 @@ sapply(house, function(x) sum(is.na(x)))
 
 # Duplicate record,
 duplicateRecords <- house[duplicated(house),]
-for (i in 1:3){
-    print(house[house$street==h1$street[i],])
+for (i in 1:dim(duplicateRecords)[1]){
+    print(house[house$street==duplicateRecords$street[i],])
 }
 # remove duplicates, only 982 records left
 house <- house[!duplicated(house),]
@@ -56,28 +66,29 @@ house <- house[!duplicated(house),]
 ################################################################################
 #
 # 2. Features 
-#  missing value, duplicates, variable range
-#
-################################################################################
-#
+# 
 # category value
-#   "street"    "city"      "zip"       "state" 
+#    "street"    "city"      "zip"       "state" 
 #    "beds"      "baths"     "sq__ft" 
 #    "type"     
 #    "sale_date"
 #    "price"
 #    "latitude"  "longitude"
 #
+################################################################################
+
 
 # address features
+cat("\n\n Summary of address features.\n")
 summary(house[,c('street','city','zip','state')])
 
 # Correlation Matrix for numerical features
+cat(paste("\n\n Correlation Matrix...\n\n"))
 round(cor(house[,c("beds","baths","sq__ft","price")]),2)
 
 hist(house$beds)
 hist(house$baths)
-hist(house$sq__fit) # zero sq_fit room found
+hist(house$sq__ft, breaks=100) # zero sq_fit room found
 
 plot(house$beds,   house$price)
 plot(house$baths,  house$price)
@@ -95,14 +106,14 @@ plot(house[,c("beds","baths","price")])
 
 library(plyr)
 houseG <- ddply(house, c("beds"), summarise,
-                N = length(price),
+                N    = length(price),
                 meanP= mean(price),
-                sd  = sd(price),
-                se =  sd/sqrt(N))
+                sd   = sd(price),
+                se   = sd/sqrt(N))
 
 #impute.mean <- function(x) replace(x, is.na(x), mean(x, na.rm))
 ind <- is.na(houseG$se)
-houseG[ind,]$se =houseG[ind,]$meanP*0.20 # 0.20 is random assigned
+houseG[ind,]$se = houseG[ind,]$meanP*0.20 # 0.20 is random assigned
 
 # Standard error of the mean
 ggplot(houseG, aes(x=beds, y=meanP, colour=factor(baths))) + 
