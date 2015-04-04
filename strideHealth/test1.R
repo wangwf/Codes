@@ -70,8 +70,20 @@ library(sqldf)
 sum(data$DOBYY==2010)
 sum(data$DOBYY==2011)
 
+sum(data$AGE1X==0)
 
+#
+# YEARIND: 1 b
+sum(data$YEARIND==1)  # person in both 2010 and 2011
+sum(data$YEARIND==2)  # person only in 2010
+sum(data$YEARIND==3)  # person only in 2011
 
+#
+table(data$DOBYY==2011,data$YEARIND==3)
+#
+data[data$YEARIND==3&data$DOBYY!=2011,]$DOBYY
+
+#
 FamilyID <- data[data$DOBYY=="2010",]$DUID
 length((FamilyID))
 length(unique(FamilyID))
@@ -84,3 +96,16 @@ FamilyID <-
 #    3.) What about people's annual increament?
 #    4.)    
 
+data1 <-data[data$DUID%in%FamilyID,]
+
+dataG <- ddply(data1, c("AGE1X","SEX"), summarise,
+                   N    = length(TOTEXPY1),
+                   meanP= mean(TOTEXPY2-TOTEXPY1),
+                   sd   = sd(TOTEXPY2-TOTEXPY1),
+                   se   = sd/sqrt(N))
+
+# Standard error of the mean
+ggplot(dataG, aes(x=AGE1X, y=meanP, colour=factor(SEX))) + 
+    geom_errorbar(aes(ymin=meanP-se, ymax=meanP+se), width=.1) +
+    geom_line() +
+    geom_point()
