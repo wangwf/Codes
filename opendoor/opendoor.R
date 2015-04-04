@@ -52,8 +52,11 @@ house <- read.csv(datafile, header=TRUE, sep=",")
 dim(house)
 colnames(house)
 
-# missing values
+# missing values, NA
 sapply(house, function(x) sum(is.na(x)))
+
+# numerica zero
+sapply(house[,sapply(house, is.numeric)], function(x) sum( x==0))
 
 # Duplicate record,
 duplicateRecords <- house[duplicated(house),]

@@ -16,16 +16,22 @@ Q2: What does your memoizer handle concurrent access?
 
 from limitedSizedDict import SizedDict
 
+ntot =0
+
 def memoizer(f,k):
     memo = SizedDict(k) #  k-sized dictionary
     def helper(x):
         if x not in memo:
             memo[x] = f(x)
+
         return memo[x]
     return helper
 
+
 #
 def fib(n):
+#    global ntot
+#    ntot = ntot +1
     if n == 0:
         return 0
     elif n == 1:
@@ -34,5 +40,6 @@ def fib(n):
         return fib(n-1) + fib(n-2)
 
 
-#fib = memoizer(fib,2)
+fib = memoizer(fib,2)
 print(fib(40))
+
